@@ -18,7 +18,7 @@ class StatusSeeder extends Seeder
         [
             'id'=> '1',
             'user_id'=> '1',
-            'status'=> 'Approved',
+            'status'=> 'Delivered',
         ]);
     }
 }

@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
-                    <script>document.write(new Date().getFullYear())</script> &copy; Volunfis 
+                    <script>document.write(new Date().getFullYear())</script> &copy; Zarami 
                 </div>
             </div>
         </div>

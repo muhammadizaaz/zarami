@@ -10,21 +10,35 @@ class DashboardController extends Controller
 {
      public function index()
      {
-          if (Auth::user()->hasRole('student')) {
-               return view('student.dashboard');
-          } elseif (Auth::user()->hasRole('lecturer')) {
-               return view('lecturer.dashboard');
+          if (Auth::user()->hasRole('staff')) {
+               return view('staff.dashboard');
+          } elseif (Auth::user()->hasRole('manager')) {
+               return view('manager.dashboard');
+          } elseif (Auth::user()->hasRole('admin')) {
+               return view('admin.dashboard');
+          }
+     }
+
+     public function create()
+     {
+          if (Auth::user()->hasRole('admin')) {
+               return view('admin.create');
+          } else {
+               return redirect()->back()->with('error', 'Unauthorized access');
           }
      }
 
      public function edit(Request $request)
      {
-          if (Auth::user()->hasRole('student')) {
+          if (Auth::user()->hasRole('staff')) {
                $user = User::find($request->id);
-               return view('student.profile', compact('user'));
-          } elseif (Auth::user()->hasRole('lecturer')) {
+               return view('staff.profile', compact('user'));
+          } elseif (Auth::user()->hasRole('manager')) {
                $user = User::find($request->id);
-               return view('lecturer.profile', compact('user'));
+               return view('manager.profile', compact('user'));
+          } elseif (Auth::user()->hasRole('admin')) {
+               $user = User::find($request->id);
+               return view('admin.profile', compact('user'));
           }
      }
 
@@ -34,11 +48,20 @@ class DashboardController extends Controller
           $user = User::find($id);
           $user->name = $request->name;
           $user->email = $request->email;
-          $user->nim = $request->nim;
-          $user->major = $request->major;
-          $user->number = $request->number;
           $user->update();
 
           return redirect()->back();
+     }
+     
+     public function destroy(User $user)
+     {
+          if (Auth::user()->hasRole('admin')) {
+               $user->delete();
+               return redirect()->route('admin.users.index')
+                    ->with('success', 'User deleted successfully');
+          } else {
+               return redirect()->back()->with('error', 'Unauthorized access');
+          }
+          
      }
 }

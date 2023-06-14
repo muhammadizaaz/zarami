@@ -7,7 +7,7 @@
 
             <img src="{{ asset('template') }}/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
                 <div class="dropdown">
-                    <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">{{ auth()->user()->name }}</a>
+                    <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Muhammad Izaaz</a>
                     <div class="dropdown-menu user-pro-dropdown">
 
                         <!-- item-->
@@ -37,7 +37,41 @@
                     </div>
                 </div>
 
-            <p class="text-muted left-user-info">{{ auth()->user()->nim }} | {{ auth()->user()->major }}</p>
+            <p class="text-muted left-user-info">Manager</p>
+        </div>
+        <div id="sidebar-menu">
+
+            <ul id="side-menu">
+
+                <li class="menu-title">Navigation</li>
+    
+                <li>
+                    <a href="index.html">
+                        <i class="mdi mdi-view-dashboard-outline"></i>
+                        <span> Dashboard </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/marketing/index">
+                        <i class="mdi mdi-calendar-blank-outline"></i>
+                        <span> Marketing </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/production/index">
+                        <i class="mdi mdi-forum-outline"></i>
+                        <span> Production </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/finance/index">
+                        <i class="mdi mdi-forum-outline"></i>
+                        <span> Finanace </span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
         <!--- Sidemenu -->
@@ -54,12 +88,32 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
+                <li>
+                    <a href="/marketing/index">
+                        <i class="mdi mdi-calendar-blank-outline"></i>
+                        <span> Marketing </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/production/index">
+                        <i class="mdi mdi-forum-outline"></i>
+                        <span> Production </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/finance/index">
+                        <i class="mdi mdi-forum-outline"></i>
+                        <span> Finanace </span>
+                    </a>
+                </li>
             </ul>
         </div>
         @endguest
 
-        @auth
-            @role('lecturer')
+       @auth
+            @role('admin')
             <div id="sidebar-menu">
 
                 <ul id="side-menu">
@@ -67,7 +121,7 @@
                     <li class="menu-title">Navigation</li>
         
                     <li>
-                        <a href="{{ route('lecturer.dashboard') }}">
+                        <a href="{{ route('admin.dashboard') }}">
                             <i class="mdi mdi-view-dashboard-outline"></i>
                             <span> Dashboard </span>
                         </a>
@@ -76,30 +130,43 @@
                     <li class="menu-title mt-2">Features</li>
     
                     <li>
-                        <a href="{{ route('lecturer.profile') }}">
+                        <a href="{{ route('admin.profile') }}">
                             <i class="mdi mdi-calendar-blank-outline"></i>
                             <span> My Profile </span>
                         </a>
                     </li>
     
                     <li>
-                        <a href="{{ route('lecturer.my-activity') }}">
+                        <a href="{{ route('admin.my-activity') }}">
                             <i class="mdi mdi-forum-outline"></i>
-                            <span> My Activity </span>
+                            <span> User data </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="apps-calendar.html">
+                            <i class="mdi mdi-calendar-blank-outline"></i>
+                            <span> Marketing </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="apps-chat.html">
+                            <i class="mdi mdi-forum-outline"></i>
+                            <span> Production </span>
                         </a>
                     </li>
     
                     <li>
                         <a href="apps-chat.html">
                             <i class="mdi mdi-forum-outline"></i>
-                            <span> Applicant </span>
+                            <span> Finanace </span>
                         </a>
                     </li>
                 </ul>
             </div>
             @endrole
 
-            @role('student')
+            @role('manager')
             <div id="sidebar-menu">
 
                 <ul id="side-menu">
@@ -107,7 +174,47 @@
                     <li class="menu-title">Navigation</li>
         
                     <li>
-                        <a href="{{ route('student.dashboard') }}">
+                        <a href="{{ route('manager.dashboard') }}">
+                            <i class="mdi mdi-view-dashboard-outline"></i>
+                            <span> Dashboard </span>
+                        </a>
+                    </li>
+    
+                    <li class="menu-title mt-2">Features</li>
+    
+                    <li>
+                        <a href="apps-calendar.html">
+                            <i class="mdi mdi-calendar-blank-outline"></i>
+                            <span> Marketing </span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="apps-chat.html">
+                            <i class="mdi mdi-forum-outline"></i>
+                            <span> Production </span>
+                        </a>
+                    </li>
+    
+                    <li>
+                        <a href="apps-chat.html">
+                            <i class="mdi mdi-forum-outline"></i>
+                            <span> Finanace </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            @endrole
+
+            @role('staff')
+            <div id="sidebar-menu">
+
+                <ul id="side-menu">
+    
+                    <li class="menu-title">Navigation</li>
+        
+                    <li>
+                        <a href="{{ route('staff.dashboard') }}">
                             <i class="mdi mdi-view-dashboard-outline"></i>
                             <span> Dashboard </span>
                         </a>
@@ -125,14 +232,21 @@
                     <li>
                         <a href="apps-chat.html">
                             <i class="mdi mdi-forum-outline"></i>
-                            <span> My Activity </span>
+                            <span> producution </span>
                         </a>
                     </li>
     
                     <li>
                         <a href="apps-chat.html">
                             <i class="mdi mdi-forum-outline"></i>
-                            <span> Applicant </span>
+                            <span> Marketing </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="apps-chat.html">
+                            <i class="mdi mdi-forum-outline"></i>
+                            <span> Finance </span>
                         </a>
                     </li>
                 </ul>

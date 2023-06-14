@@ -22,8 +22,8 @@
                                                     class="flex-shrink-0 rounded-circle avatar-xl img-thumbnail float-start me-3"
                                                     alt="profile-image">
                                                 <div class="flex-grow-1 overflow-hidden">
-                                                    <h4 class="m-0">{{ auth()->user()->name }}</h4>
-                                                    <p class="text-muted"><i>{{ auth()->user()->major }}</i></p>
+                                                    <h4 class="m-0">Shafaa Budi Aulia</h4>
+                                                    <p class="text-muted"><i>Industrial Engineering Student</i></p>
                                                     <p class="font-13">Hi I'm Alexandra Clarkson,has been the industry's
                                                         standard dummy text ever since the 1500s, when an unknown printer
                                                         took a galley of type.Contrary to popular belief, Lorem Ipsum is not
@@ -59,41 +59,55 @@
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="pt-1 float-end">
-                                                <a href=""
-                                                    class="btn btn-primary btn-sm waves-effect waves-light">Update Photo</a>
+                                                <a href="" class="btn btn-primary btn-sm waves-effect waves-light">Update Photo</a>
                                             </div>
                                         </div>
                                 </form>
 
-                                <form class="needs-validation" action="{{ route('lecturer.profile.update') }}" method="post" novalidate>
-                                    @csrf
+                                <form class="needs-validation" novalidate>
                                     <div class="mb-3">
                                         <label for="validationCustom01" class="form-label">Name</label>
                                         <input type="text" class="form-control" id="validationCustom01"
-                                            placeholder="{{ auth()->user()->name }}" name="name"/>
+                                            placeholder="First name" value="Shafa Budi Aulia" required />
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="validationCustomUsername" class="form-label">Username</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="validationCustomUsername"
+                                                placeholder="shaflash" aria-describedby="inputGroupPrepend" required />
+                                            <div class="invalid-feedback">
+                                                Please choose a username.
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="validationCustom03" class="form-label">NIM</label>
                                         <input type="text" class="form-control" id="validationCustom03"
-                                            placeholder="{{ auth()->user()->nim }}" name="nim" readonly />
+                                            placeholder="1201204375" required />
+                                        <div class="invalid-feedback">
+                                            Please provide a valid city.
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="validationCustom04" class="form-label">Email</label>
                                         <input type="text" class="form-control" id="validationCustom04"
-                                            placeholder="{{ auth()->user()->email }}" name="email" required />
+                                            placeholder="shafaa@gmail.com" required />
+                                        <div class="invalid-feedback">
+                                            Please provide a valid state.
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="validationCustom05" class="form-label">Major</label>
                                         <input type="text" class="form-control" id="validationCustom05"
-                                            placeholder="{{ auth()->user()->major }}" name="major" readonly />
+                                            placeholder="Industrial Engineering" required />
+                                        <div class="invalid-feedback">
+                                            Please provide a valid zip.
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="validationCustom05" class="form-label">Number</label>
-                                        <input type="text" class="form-control" id="validationCustom05"
-                                            placeholder="{{ auth()->user()->number }}" name="number"/>
-                                    </div>
-                                    <a href="{{ route('lecturer.profile.update') }}"
-                                                    class="btn btn-primary btn-sm waves-effect waves-light">Update Profile</a>
+                                    <button class="btn btn-primary" type="submit">Update Profile</button>
                                 </form>
 
                             </div> <!-- end card-body-->

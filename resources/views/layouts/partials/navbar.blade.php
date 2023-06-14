@@ -10,35 +10,6 @@
                             <i class="fe-search"></i>
                         </button>
                     </div>
-                    {{-- <div class="dropdown-menu dropdown-lg" id="search-dropdown">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h5 class="text-overflow mb-2">Found 22 results</h5>
-                        </div>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-home me-1"></i>
-                            <span>Analytics Report</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-aperture me-1"></i>
-                            <span>How can I help you?</span>
-                        </a>
-            
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings me-1"></i>
-                            <span>User profile settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
-                        </div>
-                    </div>  --}}
                 </div>
             </form>
         </li>
@@ -58,13 +29,13 @@
             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <img src="{{ asset('template') }}/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
                 <span class="pro-user-name ms-1">
-                    {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i> 
+                    Muhamamd Izaaz <i class="mdi mdi-chevron-down"></i> 
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                 <!-- item-->
                 <div class="dropdown-header noti-title">
-                    <h6 class="text-overflow m-0">Welcome, {{ auth()->user()->name }} !</h6>
+                    <h6 class="text-overflow m-0">Welcome, Muhamamd Izaaz !</h6>
                 </div>
 
                 <!-- item-->
@@ -75,7 +46,7 @@
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="auth-logout.html" class="dropdown-item notify-item">
+                <a href="{{ route('logout') }}" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Logout</span>
                 </a>
@@ -88,18 +59,18 @@
     <div class="logo-box">
         <a href="index.html" class="logo logo-light text-center">
             <span class="logo-sm">
-                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="36">
+                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="72">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template') }}/images/logo-dark-img.png" alt="" height="36">
+                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="72">
             </span>
         </a>
         <a href="index.html" class="logo logo-dark text-center">
             <span class="logo-sm">
-                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="36">
+                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="72">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('template') }}/images/logo-dark-img.png" alt="" height="36">
+                <img src="{{ asset('template') }}/images/logo-img.png" alt="" height="72">
             </span>
         </a>
     </div>

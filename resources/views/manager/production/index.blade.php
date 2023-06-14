@@ -38,29 +38,43 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Username</th>
+                                            <th>Part</th>
+                                            <th>Quantity</th>
+                                            <th>Time</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
+                                            <td>1</td>
+                                            <td>Main Bottle</td>
+                                            <td>10</td>
+                                            <td>2021-08-01 12:00:00</td>
+                                            <td><span class="badge bg-success">Completed</span></td>
+                                            <td>
+                                                <a href="" class="btn btn-sm btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                                <form action="" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="btn btn-sm btn-danger"><i class="mdi mdi-trash-can"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
+                                        {{-- @foreach ($productions as $production)
                                         <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td colspan="2">Larry the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $production->part->name }}</td>
+                                            <td>{{ $production->quantity }}</td>
+                                            <td>{{ $production->created_at }}</td>
+                                            <td>
+                                                @if ($production->status == 0)
+                                                    <span class="badge bg-warning">Pending</span>
+                                                @elseif ($production->status == 1)
+                                                    <span class="badge bg-success">Completed</span>
+                                                @endif
+                                            </td>
+                                        @endforeach --}}
                                     </tbody>
                                 </table>
                             </div>

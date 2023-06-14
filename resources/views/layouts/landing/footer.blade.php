@@ -5,7 +5,7 @@
             <div class="col-xl-12">
                 <div class="text-center">
                     <div class="footer-logo mb-3">
-                        <img src="{{ asset('landing') }}/images/logo-img.png" alt="" height="60">
+                        <img src="{{ asset('landing') }}/images/logo-dark-img.png" alt="" height="72">
                     </div>
                     <ul class="list-inline footer-list text-center mt-5">
                         <li class="list-inline-item"><a href="#">About</a></li>

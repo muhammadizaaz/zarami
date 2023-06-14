@@ -32,41 +32,55 @@ Route::get('/test', function () {
 });
 
 Route::get('/upload-file', function () {
-    return view('student.upload-file');
+    return view('manager.upload-file');
 });
 
 Route::get('/profile', function () {
-    return view('lecturer.profile');
+    return view('admin.profile');
 });
 
 Route::get('/table', function () {
-    return view('lecturer.applicant');
+    return view('admin.applicant');
 });
 
 Route::get('/dashboard', function () {
-    return view('lecturer.dashboard');
+    return view('manager.dashboard');
+});
+
+Route::get('/marketing/index', function() {
+    return view('manager.marketing.index');
+});
+
+Route::get('/production/index', function() {
+    return view('manager.production.index');
+});
+
+Route::get('/finance/index', function() {
+    return view('manager.finance.index');
+});
+
+//auth route for admin
+Route::group(['middleware' => ['auth', 'role:admin']], function() { 
+    Route::get('/admin/dashboard',[DashboardController::class,'index'])->name('admin.dashboard');
+    Route::get('/admin/profile',[DashboardController::class,'edit'])->name('admin.profile');
+    Route::put('/admin/profile',[DashboardController::class,'update'])->name('admin.profile.update');
+
+
+
+});
+
+// for manager
+Route::group(['middleware' => ['auth', 'role:manager']], function() { 
+    Route::get('/manager/dashboard', [DashboardController::class, 'index'])->name('manager.dashboard');
+    Route::get('/manager/profile',[DashboardController::class,'profile'])->name('manager.profile');
 });
 
 
-//auth route for lecturer
-Route::group(['middleware' => ['auth', 'role:lecturer']], function() { 
-    Route::get('/lecturer/dashboard',[DashboardController::class,'index'])->name('lecturer.dashboard');
-    Route::get('/lecturer/profile',[DashboardController::class,'edit'])->name('lecturer.profile');
-    Route::put('/lecturer/profile',[DashboardController::class,'update'])->name('lecturer.profile.update');
-    
-    //activity
-    Route::get('/lecturer/my-activity',[ActivityController::class,'index'])->name('lecturer.my-activity');
-    Route::get('/lecturer/my-activity/create',[ActivityController::class,'create'])->name('lecturer.my-activity.create');
-    Route::post('/lecturer/my-activity',[ActivityController::class,'store'])->name('lecturer.my-activity.store');
-    Route::get('/lecturer/my-activity/{id}/edit',[ActivityController::class,'edit'])->name('lecturer.my-activity.edit');
-    Route::put('/lecturer/my-activity/{id}',[ActivityController::class,'update'])->name('lecturer.my-activity.update');
-    Route::delete('/lecturer/my-activity/{id}',[ActivityController::class,'destroy'])->name('lecturer.my-activity.destroy');
+//for staff
+Route::group(['middleware' => ['auth', 'role:staff']], function() { 
+    Route::get('/staff/dashboard', [DashboardController::class, 'index'])->name('staff.dashboard');
+    Route::get('/staff/profile',[DashboardController::class,'profile'])->name('staff.profile');
 });
 
-// for student
-Route::group(['middleware' => ['auth', 'role:student']], function() { 
-    Route::get('/student/dashboard', [DashboardController::class, 'index'])->name('student.dashboard');
-    Route::get('/student/profile',[DashboardController::class,'profile'])->name('student.profile');
-});
 
 require __DIR__.'/auth.php';

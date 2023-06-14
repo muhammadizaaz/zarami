@@ -25,28 +25,7 @@
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
-
-            <!-- NIM Address -->
-            <div class="mt-4">
-                <x-label for="nim" :value="__('NIM')" />
-
-                <x-input id="nim" class="block mt-1 w-full" type="text" name="nim" :value="old('nim/nip')" required />
-            </div>
-
-            <!-- major Address -->
-            <div class="mt-4">
-                <x-label for="major" :value="__('Major')" />
-
-                <x-input id="major" class="block mt-1 w-full" type="text" name="major" :value="old('major')"/>
-            </div>
-
-            <!-- major Address -->
-            <div class="mt-4">
-                <x-label for="number" :value="__('Number')" />
-
-                <x-input id="number" class="block mt-1 w-full" type="text" name="number" :value="old('number')"/>
-            </div>
-
+            
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
@@ -70,8 +49,9 @@
                         <div class="mt-4">
                             <x-label for="role_id" value="{{ __('Register as:') }}" />
                             <select name="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <option value="lecturer">Lecturer</option>
-                                <option value="student">Student</option>
+                                <option value="lecturer">Manager</option>
+                                <option value="staff">Staff</option>
+                                <option value="admin">Admin</option>
                             </select>
                         </div>
 

@@ -12,13 +12,23 @@ return [
     'truncate_tables' => true,
 
     'roles_structure' => [
-        'lecturer' => [
+        'admin' => [
             'users' => 'c,r,u,d',
             'payments' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'student' => [
+        'manager' => [
             'profile' => 'r,u',
+            'production'=> 'c,r,u,d',
+            'marketing'=> 'c,r,u,d',
+            'finanace'=>'c,r,u,d',
+        ],
+
+        'staff' => [
+            'profile' => 'r,u',
+            'production'=> 'r,u',
+            'marketing'=> 'r,u',
+            'finanace'=>'r,u',
         ]
     ],
 
